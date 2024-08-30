@@ -2,7 +2,7 @@
 import React from 'react'
 import ConnectionCard from '@/app/(main)/(pages)/connections/_component/connection-card'
 import { AccordionContent } from '@/components/ui/accordion'
-// import MultipleSelector from '@/components/ui/multiple-selector'
+import MultipleSelector from '@/components/ui/multiple-selector'
 import { Connection } from '@/lib/types'
 import { useNodeConnections } from '@/providers/connections-provider'
 import { EditorState } from '@/providers/editor-provider'
@@ -19,9 +19,9 @@ import { useFuzzieStore } from '@/store'
 //   PopoverContent,
 //   PopoverTrigger,
 // } from '@/components/ui/popover'
-import { CheckIcon, ChevronsUpDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+// import { CheckIcon, ChevronsUpDown } from 'lucide-react'
+// import { Button } from '@/components/ui/button'
+// import { cn } from '@/lib/utils'
 
 const frameworks = [
   {
@@ -89,7 +89,7 @@ const RenderConnectionAccordion = ({
             type={title}
             connected={{ [title]: isConnected }}
           />
-          {/* {slackSpecial && isConnected && (
+          {slackSpecial && isConnected && (
             <div className="p-6">
               {slackChannels?.length ? (
                 <>
@@ -112,7 +112,7 @@ const RenderConnectionAccordion = ({
                 'No Slack channels found. Please add your Slack bot to your Slack channel'
               )}
             </div>
-          )} */}
+          )}
         </>
       )}
     </AccordionContent>

@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import {ClerkProvider} from "@clerk/nextjs"
 import "./globals.css";
 import ModalProvider from "@/providers/modal-provider";
+import { BillingProvider } from "@/providers/billing-provider";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ModalProvider>
-            {children}
-            </ModalProvider>
+            <BillingProvider>
+              <ModalProvider>
+              {children}
+              </ModalProvider>
+            </BillingProvider>
           </ThemeProvider></body>
     </html>
     </ClerkProvider>
