@@ -103,16 +103,18 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> development studio
-      </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
-      </p>
-    </div>
+<div className="max-w-7xl relative mx-auto py-10 sm:py-16 md:py-20 lg:py-40 px-4 sm:px-6 md:px-8 w-full left-0 top-0">
+  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold dark:text-white text-center md:text-left">
+    The Ultimate <br className="hidden md:block" /> development studio
+  </h1>
+  
+  <div className="max-w-md sm:max-w-lg md:max-w-2xl px-4 sm:px-0 mt-4 md:mt-6 lg:mt-8 mx-auto md:mx-0">
+    <p className="text-sm md:text-base lg:text-lg dark:text-neutral-200 text-center md:text-left leading-relaxed md:leading-loose">
+      We build beautiful products with the latest technologies and frameworks.
+      Our team of passionate developers and designers loves creating amazing products that stand out.
+    </p>
+  </div>
+</div>
   )
 }
 
