@@ -2,7 +2,9 @@ import ProfileForm from '@/components/forms/profile-form'
 import React from 'react'
 import ProfilePicture from './_components/profile-picture'
 import { db } from '@/lib/db'
-import { currentUser } from '@clerk/nextjs/server'
+import { clerkClient, currentUser  } from '@clerk/nextjs/server'
+import axios from 'axios'
+
 
 type Props = {}
 
@@ -27,6 +29,14 @@ const Settings = async (props: Props) => {
   const uploadProfileImage = async (image: string) => {
     'use server'
     const id = authUser.id
+    try{
+    // const imageResponse = await axios.get(image ,{ responseType: 'json' });
+    // const file = new File([imageResponse.data], 'profile-pic.png', { type: 'image/png' });
+    // console.log(image)
+    // const params = {
+    //   file,
+    // };
+
     const response = await db.user.update({
       where: {
         clerkId: id,
@@ -36,8 +46,18 @@ const Settings = async (props: Props) => {
       },
     })
     
+    // if(response){
+    // const clerkResponse = await clerkClient.users.updateUserProfileImage(id, params);
+    // return clerkResponse
+    // }
+
     return response
+  }catch(error){
+    console.error('Error uploading profile image:', error);
+    throw new Error('Failed to upload profile image');
   }
+  }
+
 
   const updateUserInfo = async (name: string) => {
     'use server'
